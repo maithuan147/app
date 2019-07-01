@@ -14,14 +14,14 @@
 Route::get('/', function () {
     return view('auth.login');
 });
-Route::resource('post', 'PostController');
-Route::resource('tag', 'TagController');
-Route::resource('categories', 'CategoryController');
-Route::resource('role', 'RoleController');
-// Route::resource('post', 'PostController');
-// Route::group(['middleware'=>'auth'],function () {
-    
-// });
+
+Route::group(['middleware'=>'auth'],function () {
+    Route::resource('post', 'PostController');
+    Route::resource('tag', 'TagController');
+    Route::resource('categories', 'CategoryController');
+    Route::resource('role', 'RoleController');
+    Route::resource('user', 'UserController');
+});
 
 Auth::routes();
 

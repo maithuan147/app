@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\role;
 use Illuminate\Http\Request;
 use App\Contracts\IRoleDbRepository;
-
+use App\Http\Requests\Role\InsertRoleRequest;
+use App\Http\Requests\Role\EditRoleRequest;
 
 class RoleController extends Controller
 {
@@ -43,7 +44,7 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(InsertRoleRequest $request)
     {
         $requestpermissions = implode(',',$request->permissions) ;
         $dataRequest = $request->only($this->fillData);
@@ -83,7 +84,7 @@ class RoleController extends Controller
      * @param  \App\role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EditRoleRequest $request, $id)
     {  
         $requestpermissions = implode(',',$request->permissions);
         $dataRequest = $request->only($this->fillData);

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Tag;
 use Illuminate\Http\Request;
 use App\Contracts\ITagDbRepository;
-use App\Http\Requests\Tag\InsetTagRequest;
+use App\Http\Requests\Tag\InsertTagRequest;
 use App\Http\Requests\Tag\EditTagRequest;
 use App\Http\Requests\Tag\DeleteTagRequest;
 
@@ -45,7 +45,7 @@ class TagController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(InsetTagRequest $request)
+    public function store(InsertTagRequest $request)
     {
         $dataRequest = $request->all();
         $this->tagReponsitory->create($dataRequest);

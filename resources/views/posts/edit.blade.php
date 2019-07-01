@@ -51,12 +51,18 @@
             name="category_ids[]" >
         <label for="" style="display:inline">{{ $category->name }}</label>
     @endforeach
+    @error('category_ids')
+        <small class="form-text text-danger">{{ $message }}</small>
+    @enderror
     <div></div>
     <div>Tag</div>
     @foreach ($tags as $tag)
         <input type="checkbox" value="{{ $tag->id }}" {{ (in_array($tag->id, $postTags)) ? 'checked' : '' }}  name="tag_ids[]">
         <label for="" style="display:inline">{{ $tag->name }}</label>
     @endforeach
+    @error('tag_ids')
+        <small class="form-text text-danger">{{ $message }}</small>
+    @enderror
     <div></div>
         <input type="submit">
     </form>

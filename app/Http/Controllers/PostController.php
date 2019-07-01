@@ -9,7 +9,7 @@ use App\Contracts\ITagDbRepository;
 use App\Contracts\IPostDbRepository;
 use App\Contracts\ICatagoriesDbRepository;
 use App\Http\Requests\Post\EditPostRequest;
-use App\Http\Requests\Post\InsetPostRequest;
+use App\Http\Requests\Post\InsertPostRequest;
 use App\Http\Requests\Post\DeletePostRequest;
 
 class PostController extends Controller
@@ -62,7 +62,7 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(InsetPostRequest $request)
+    public function store(InsertPostRequest $request)
     {
         if(empty($request->slug)){
             $request->slug = $request->title;

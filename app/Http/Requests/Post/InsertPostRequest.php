@@ -4,7 +4,7 @@ namespace App\Http\Requests\Post;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class InsetPostRequest extends FormRequest
+class InsertPostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,8 +26,10 @@ class InsetPostRequest extends FormRequest
         return [
             'title' => 'required',
             'description' => 'required',
-            'content' => 'required|min:2|max:5000',
-            'status' => 'required|numeric',
+            'content' => 'required|max:5000',
+            'status' => 'required|numeric|boolean',
+            'category_ids' => 'required|array',
+            'tag_ids' => 'required|array'
         ];
     }
 }

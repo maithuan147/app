@@ -21,22 +21,22 @@
         <div>
             @include('input.checkbox',[
                 'name'  => 'permissions[]',
-                'value' => 'CT',
+                'value' => 'CP',
                 'label' => __('Create')
             ])
             @include('input.checkbox',[
                 'name'  => 'permissions[]',
-                'value' => 'RT',
+                'value' => 'RP',
                 'label' => __('Read')
             ])
             @include('input.checkbox',[
                 'name'  => 'permissions[]',
-                'value' => 'UT',
+                'value' => 'UP',
                 'label' => __('Update')
             ])
             @include('input.checkbox',[
                 'name'  => 'permissions[]',
-                'value' => 'DT',
+                'value' => 'DP',
                 'label' => __('Delete')
             ])
         </div>
@@ -69,22 +69,22 @@
     <div>
         @include('input.checkbox',[
             'name'  => 'permissions[]',
-            'value' => 'CP',
+            'value' => 'CT',
             'label' => __('Create')
         ])
         @include('input.checkbox',[
             'name'  => 'permissions[]',
-            'value' => 'RP',
+            'value' => 'RT',
             'label' => __('Read')
         ])
         @include('input.checkbox',[
             'name'  => 'permissions[]',
-            'value' => 'UP',
+            'value' => 'UT',
             'label' => __('Update')
         ])
         @include('input.checkbox',[
             'name'  => 'permissions[]',
-            'value' => 'DP',
+            'value' => 'DT',
             'label' => __('Delete')
         ])
     </div>
