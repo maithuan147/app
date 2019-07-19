@@ -12,6 +12,15 @@ trait Property{
     public function getPermissions(){
         return $this->permissions;
     }
+    public function getDescription(){
+        return $this->description;
+    }
+    public function getCreatedAt(){
+        return $this->created_at->format('d-m-Y');
+    }
+    public function getCreatedBy(){
+        return $this->create_by;
+    }
     public function getDsPer(){
         $arrayper = explode(',',$this->permissions);
         return $arrayper;

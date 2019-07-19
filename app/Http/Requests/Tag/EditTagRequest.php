@@ -25,6 +25,7 @@ class EditTagRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'slug' => 'unique:tags'. $this->id,
         ];
     }
 }

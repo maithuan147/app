@@ -39,6 +39,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
+        $this->mapBackendRoutes();
         //
     }
 
@@ -56,6 +57,14 @@ class RouteServiceProvider extends ServiceProvider
              ->group(base_path('routes/web.php'));
     }
 
+    protected function mapBackendRoutes()
+    {
+        Route::middleware('web','auth')
+             ->prefix('dashboard')
+             ->name('dashboard.')
+             ->namespace($this->namespace)
+             ->group(base_path('routes/backend.php'));
+    }
     /**
      * Define the "api" routes for the application.
      *

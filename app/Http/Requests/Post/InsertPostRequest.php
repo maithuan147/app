@@ -2,10 +2,12 @@
 
 namespace App\Http\Requests\Post;
 
+use App\Rules\Restricted;
 use Illuminate\Foundation\Http\FormRequest;
 
 class InsertPostRequest extends FormRequest
 {
+    
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -24,12 +26,13 @@ class InsertPostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'description' => 'required',
-            'content' => 'required|max:5000',
-            'status' => 'required|numeric|boolean',
+            'title' => 'required|max:250|unique:posts',
+            'thumbnail' => 'required|image|min:1|max:500|mimes:jpeg,png',
+            'description' => 'required|max:250',
+            'content' => ['required','max:5000',new Restricted],
+            'status' => 'required|numeric|min:0|max:8',
+            'slug'   => 'unique:posts',
             'category_ids' => 'required|array',
-            'tag_ids' => 'required|array'
         ];
     }
 }

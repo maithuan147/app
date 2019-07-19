@@ -25,7 +25,8 @@ class InsertRoleRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'permissions' => 'array'
+            'description' => 'required',
+            'permissions' => 'required|array',
         ];
     }
 }

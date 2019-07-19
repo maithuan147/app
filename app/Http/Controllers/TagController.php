@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Tag;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Contracts\ITagDbRepository;
+use App\Contracts\EloquentsDbRepository\ITagDbRepository;
 use App\Http\Requests\Tag\InsertTagRequest;
 use App\Http\Requests\Tag\EditTagRequest;
 use App\Http\Requests\Tag\DeleteTagRequest;
@@ -24,8 +25,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        $taggs = $this->tagReponsitory->getAll();
-        $dataView = compact('taggs');
+        $tags = $this->tagReponsitory->getAll();
+        $dataView = compact('tags');
         return view('tags.list',$dataView);
     }
 
@@ -36,7 +37,10 @@ class TagController extends Controller
      */
     public function create()
     {
-        return view('tags.create');
+        $tagAll = $this->tagReponsitory->getAll();
+        $tags = $tagAll->pluck('name','id')->prepend('select parent', '')->toArray();
+        $dataView = compact('tags');
+        return view('tags.create',$dataView);
     }
 
     /**
@@ -47,9 +51,15 @@ class TagController extends Controller
      */
     public function store(InsertTagRequest $request)
     {
-        $dataRequest = $request->all();
+        if(empty($request->slug)){
+            $request->slug = $request->name;
+        }
+        $dataRequest = $request->validated();
+        $dataRequest['slug'] = Str::slug($request->slug, '-'); 
+        $dataRequest['parent_id'] = $request->input('parent_id');
         $this->tagReponsitory->create($dataRequest);
-        return redirect()->route('tag.index');
+        $this->tagReponsitory->create($dataRequest);
+        return redirect()->route('dashboard.tag.index');
     }
 
     /**

@@ -24,10 +24,10 @@ class InsertCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'description' => 'required',
-            'slug' => 'required',
-            'status' => 'required|numeric',
+            'name' => 'required|max:250|unique:categories',
+            'description' => 'max:250',
+            'status' => 'required|numeric|min:0|max:8',
+            'slug'   => 'unique:categories',
         ];
     }
 }

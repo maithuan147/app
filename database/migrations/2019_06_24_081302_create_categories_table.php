@@ -16,10 +16,11 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('description');
-            $table->string('slug');
-            $table->boolean('status');
+            $table->string('description')->nullable();
+            $table->string('slug',191)->unique();
+            $table->tinyInteger('status')->unsigned()->default('1');
             $table->timestamps();
+            $table->nestedSet();
         });
     }
 
@@ -31,5 +32,8 @@ class CreateCategoriesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('categories');
+        Schema::table('table', function (Blueprint $table) {
+            $table->dropNestedSet();
+        });
     }
 }

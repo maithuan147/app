@@ -25,6 +25,7 @@ class InsertTagRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'slug' => 'unique:tags',
         ];
     }
 }

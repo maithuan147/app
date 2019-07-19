@@ -15,14 +15,11 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::group(['middleware'=>'auth'],function () {
-    Route::resource('post', 'PostController');
-    Route::resource('tag', 'TagController');
-    Route::resource('categories', 'CategoryController');
-    Route::resource('role', 'RoleController');
-    Route::resource('user', 'UserController');
-});
 
 Auth::routes();
+// Route::get('admin-login', 'Auth\AdminLoginController@showLoginForm');
+// Route::post('admin-login', 'Auth\AdminLoginController@login')->name('admin-login');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+
+

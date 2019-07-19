@@ -1,0 +1,289 @@
+.container{
+	max-width: 1200px;
+	margin: 0 auto;
+}
+main{
+	height: calc(100vh - 50px);
+	background: #f8f9fa;
+}
+footer{
+	height: 200px;
+	background: yellow;
+}
+p{
+	margin-top: 0px;
+}
+td,th{
+	padding: 0 50px;
+}
+.mx-0{
+	margin-right: 0px;
+	margin-left: 0px;
+}
+.active{
+	color: blue;
+}
+.form-content{
+	width: 450px;
+	margin: auto;
+}
+.pxy-30{
+	padding: 30px;
+	
+}
+.form-content h3{
+	text-align: center;
+	background: #00c0ef;
+	color: #fff;
+	padding: 15px;
+	font-size: 24px;
+	font-family: cursive;
+	margin: 0;
+}
+.bg--color-brown{
+	background: #dde3ec;
+	border: 1px solid #dde3ec;
+}
+.bg--color-white{
+	background: #fff;
+}
+.text-color-blue{
+	color: blue;
+	float: right;
+	margin: 0;
+}
+.text-footer{
+	color: #7a8ca5;
+	font-size: 14px;
+	margin: 10px;
+}
+.mt-20{
+	margin-top: 20px;
+	border-radius: inherit;
+}
+.show--height-center{
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background: #364150;
+}
+.header{
+	height: 50px;
+}
+.err{
+	color: red;
+	margin: 5px 0 0 0;
+}
+.header__nav-link{
+	display: flex;
+	justify-content: flex-end;
+}
+.header__nav-link .nav-link{
+	padding: 10px 16px;
+}
+.nav-link{
+	color: white;
+}
+.left-100{
+	left: -100%;
+}
+.header__nav-link i{
+	font-size: 13px;
+	margin: 5px;
+}
+a{
+	color: white;
+}
+a:hover{
+	text-decoration: none;
+}
+.mx-15{
+	margin-left: 15px;
+	margin-right: 15px;
+}
+.col-md-10{
+	flex : 0 0 87.5%;
+	max-width: 87.5%;
+}
+.col-md-2{
+	flex : 0 0 12.5%;
+	max-width: 12.5%;
+}
+.bg-brown{
+	background: #3A4B55;
+}
+.height-100{
+	height: 100%;
+	background: #eee;
+}
+.from-height{
+	height: calc(100% - 38px);
+}
+.page-footer{
+	color: #bcc3c7;
+	margin-bottom: 0px;
+	padding: 5px 0;
+	background: #fff;
+	margin-left: -15px;
+	margin-right: -15px;
+	padding-left: 15px;
+	font-size: 12px;
+}
+.page-menu li{
+	border-bottom: 1px solid rgba(255,255,255,0.1);
+	padding: 13px 15px;
+	margin-left: -15px;
+	margin-right: -15px;
+	border-left: 3px solid transparent;
+}
+.page-menu i{
+	margin-right: 10px;
+}
+.page__main a{
+	color: black;
+	font-size: 13px;
+}
+.text--color-6c757d{
+	color: #6c757d !important;
+}
+.mx-5{
+	margin: 0 2px;
+}
+.border--color-black{
+	border: 1px solid black;
+}
+.custom-btn{
+	background: white;
+	color: black;
+	border-color: #ccc;
+}
+.display-inline-block{
+	display: inline-block;
+}
+.active-off{
+	width: 70px;
+	height: 40px;
+	display: inline-block;
+	margin: 10px;
+	color: #fff;
+}
+.bg-36c6d3{
+	background: #36c6d3 !important;
+}
+.bg-blue{
+	border: #36c6d3;
+	padding: 5px 10px;
+}
+.font-size-13{
+	font-size: 14px;
+}
+.font-size-13 button{
+	font-size: 14px;
+	margin: 0 10px 0 0;
+}
+.display-flex{
+	display: flex;
+}
+.display-flex a{
+	margin-left: 10px;
+}
+.py-15{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.mb-20{
+	margin: 10px 0px 20px 0;
+}
+th,td{
+	padding-left: 0px !important;
+}
+.bg-fbfcfd{
+	background: #FBFCFD;
+	color: #AFAFAF;
+}
+.child:nth-child(even) {
+  background-color: rgba(0,0,0,.05);
+}
+.child:nth-child(odd) {
+  background-color: #FBFCFD;
+}
+th{
+	padding: 10px 0;
+	font-size: 11px;
+}
+td{
+	padding: 7px 0;
+}
+.child a{
+	padding: 7px 12px;
+	margin: 0 10px 0px 0;
+}
+.child li{
+	font-size: 12px;
+}
+.dt-length-records{
+	color:#1f64a0;
+	font-size: 12px; 
+}
+.bg-f1f1f1{
+	background: #f1f1f1;
+	padding: 2px 5px;
+	color: #777;
+}
+.bg-dc3545{
+	background: #DC3545;
+	width: 70px;
+	height: 40px;
+	display: inline-block;
+	margin: 10px;
+	color: #fff;
+}
+.phantrang a{
+	padding: 2px 8px;
+	background: #f1f1f1;
+	color: #777;
+}
+.phantrang .active{
+	color: #fff;
+}
+.main-form{
+	padding: 15px;
+}
+.widget{
+	padding: 10px 15px 15px 15px;
+}
+.widget h4{
+	border-bottom: 1px solid rgba(1,1,1,0.1);
+	margin-right: -15px;
+	margin-left: -15px;
+	padding-left: 15px;
+	padding-bottom: 10px;
+}
+.widget-body{
+	padding-top: 6px;
+}
+.color-red{
+	color: red;
+}
+.bg-1111{
+	background: #1111;
+}
+.blog{
+	background: #3A4B67;
+    margin-left: -15px;
+    margin-right: -15px;
+    padding: 10px 15px;
+	color: white;
+    margin-bottom: -15px;
+    margin-top: 15px;
+}
+.bg-fbfcfd label{
+	margin-bottom: 0px;
+}
+.bg-518ca3{
+	background: #518ca3;
+}
+.bg-black{
+	background: #000000 !important;
+}

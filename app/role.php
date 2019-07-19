@@ -2,14 +2,23 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Models\RoleTraits\Property;
+use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class role extends Model
 {
-    use Property;
+    use Property,Sluggable;
 
     protected $fillable = [
-        'name', 'permissions', 'password',
+        'name', 'permissions', 'description', 'create_by'
     ];
+    public function sluggable()
+    {
+        return [
+            'name' => [
+                'source' => 'name'
+            ],
+        ];
+    }
 }
