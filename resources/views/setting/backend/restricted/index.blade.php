@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/MutySelect/amsify.suggestags.css') }}">
 @endpush
 @section('content')
-<div class="content-wrapper" style="min-height: calc(100vh - 200px)">
+<div class="content-wrapper" style="min-height: calc(100vh - 200px);margin-bottom:-30px">
     <section class="content-header">
         <h1>{{ __('Create Post') }} </h1>
         <ol class="breadcrumb">

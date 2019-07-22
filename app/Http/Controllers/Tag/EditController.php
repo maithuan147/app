@@ -3,24 +3,21 @@
 namespace App\Http\Controllers\Tag;
 
 use App\Http\Controllers\Controller;
-use App\Contracts\EloquentsDbRepository\ICategoryDbRepository;
+use App\Contracts\EloquentsDbRepository\ITagDbRepository;
 
 
 class EditController extends Controller
 {
-    protected $categoryRepository;
+    protected $tagReponsitory;
 
 
-    public function __construct(ICategoryDbRepository $categoryRepository){
-        $this->categoryRepository = $categoryRepository;
+    public function __construct(ITagDbRepository $tagReponsitory){
+        $this->tagReponsitory = $tagReponsitory;
     }
 
     public function __invoke(int $id){
-        // $this->authorize('update',Post::class);
-        $categoriesAll = $this->categoryRepository->getAll('Tree');
-        $categories = $categoriesAll->pluck('name','id')->prepend('select parent', '')->toArray();
-        $category = $this->categoryRepository->find($id);
-        $dataView = compact('category','categories');
-        return view('categories.edit',$dataView);
+        $tag = $this->tagReponsitory->find($id);
+        $dataView = compact('tag');
+        return view('tags.edit',$dataView);
     }
 }

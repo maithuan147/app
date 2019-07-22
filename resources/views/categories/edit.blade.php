@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title', 'Add Post')
+@section('title', 'Add Category')
 @push('head')
 <link href="{{ asset('css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}" rel="stylesheet">
 <!-- Theme style -->
@@ -23,7 +23,7 @@
             <li class="active">{{ __('Edit') }}</li>
         </ol>
     </section>
-    <form action="{{ route('dashboard.category.update',$category) }}" method="POST" enctype="multipart/form-data" class="mx-15 mt-20">
+    <form action="{{ route('dashboard.category.update',$category->getId()) }}" method="POST" class="mx-15 mt-20">
         @csrf
         @method('PUT')
         <div class="row">

@@ -34,8 +34,6 @@ Route::group(['namespace' => 'Post', 'prefix' => 'post', 'as' => 'post.'], funct
     Route::delete('trash/{id}', 'TrashController')->name('trash');
     Route::delete('bulk', 'BulkController')->name('bulk');
     Route::get('export', 'ExportController')->name('export');
-    Route::get('show', 'ShowController')->name('show');
-    Route::get('postshow/{slug}', 'PostShowController')->name('postshow');
 });
 
 Route::group(['namespace' => 'Category', 'prefix' => 'category', 'as' => 'category.'], function () {
@@ -69,10 +67,14 @@ Route::group(['namespace' => 'Role', 'prefix' => 'role', 'as' => 'role.'], funct
     Route::delete('delete/{id}', 'DeleteController')->name('delete');
     Route::delete('bulk', 'BulkController')->name('bulk');
 });
-Route::group(['namespace' => 'Setting\Restricted'], function () {
-    Route::group(['prefix' => 'options-restricted', 'as' => 'options-restricted.'], function () {
+Route::group(['namespace' => 'Setting'], function () {
+    Route::group(['namespace' => 'Restricted','prefix' => 'options-restricted', 'as' => 'options-restricted.'], function () {
         Route::get('/', 'IndexController')->name('restricted');
         Route::post('/restricted-words', 'RestrictedController')->name('restricted-words');
+    });
+    Route::group(['namespace' => 'Media','prefix' => 'options-media', 'as' => 'options-media.'], function () {
+        Route::get('/', 'IndexController')->name('media');
+        Route::put('/media', 'SizeController')->name('media');
     });
 });
 

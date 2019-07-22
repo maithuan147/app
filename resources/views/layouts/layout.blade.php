@@ -37,7 +37,7 @@
             
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
-                <li class="dropdown"><a href="https://trello.com" class="nav-link color-white"><i class="fa fa-globe"           style="margin-right:5px"></i>{{ __('View website') }}</a></li>
+                    <li class="dropdown"><a href="{{ url('japanshop/post')}}" class="nav-link color-white" target="_blank"><i class="fa fa-globe" style="margin-right:5px"></i>{{ __('View website') }}</a></li>
                     <li class="dropdown messages-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-envelope color-white"></i>
@@ -121,7 +121,7 @@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{ asset('img/1559813360b4.jpg') }}" class="user-image" alt="User Image">
+                            <img src="{{ asset('img/user2.jpg') }}" class="user-image" alt="User Image">
                         <span class="hidden-xs">{{ Auth::user()->name }}</span>
                         </a>
                         <ul class="dropdown-menu">
@@ -130,7 +130,7 @@
                                 <form action="#" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
-                                    <label for="upload"><img src="{{ asset('img/1559813360b4.jpg') }}" class="img-circle" alt="User Image" width="100px" height="100px" style="margin-top:10px"></label>
+                                    <label for="upload"><img src="{{ asset('img/user2.jpg') }}" class="img-circle" alt="User Image" width="100px" height="100px" style="margin-top:10px"></label>
                                     <input type="file" name="image" id="upload" class="hidden">
                                     <button style=" position: absolute;right:20px" class="btn-primary">Luu</button>
                                 </form>
@@ -186,7 +186,7 @@
               <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="{{ asset('img/1559813360b4.jpg') }}" class="img-circle" alt="User Image" style="height:45px !important">
+                        <img src="{{ asset('img/user2.jpg') }}" class="img-circle" alt="User Image" style="height:45px !important">
                     </div>
                     <div class="pull-left info">
                         <p class="color-white">{{ Auth::user()->name }}</p>
@@ -245,7 +245,7 @@
                     <ul class="treeview-menu">
                         <li><a href="#"><i class="fa fa-circle-o"></i>{{ __('General') }}</a></li>
                         <li><a href="{{ url('dashboard/options-restricted') }}"><i class="fa fa-circle-o"></i> {{ __('Restricted') }}</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i>{{ __('Media') }}</a></li>
+                        <li><a href="{{ url('dashboard/options-media') }}"><i class="fa fa-circle-o"></i>{{ __('Media') }}</a></li>
                     </ul>
                 </li>
 

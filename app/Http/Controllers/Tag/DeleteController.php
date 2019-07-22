@@ -4,18 +4,18 @@ namespace App\Http\Controllers\Tag;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Contracts\EloquentsDbRepository\IRoleDbRepository;
+use App\Contracts\EloquentsDbRepository\ITagDbRepository;
 
 class DeleteController extends Controller
 {
-    protected $roleRepository;
+    protected $tagReponsitory;
 
-    public function __construct(IRoleDbRepository $roleRepository){
-        $this->roleRepository = $roleRepository;
+    public function __construct(ITagDbRepository $tagReponsitory){
+        $this->tagReponsitory = $tagReponsitory;
     }
 
     public function __invoke(int $id){
-        $this->roleRepository->forceDelete($id);
-        return redirect()->back()->withInput();
+        $this->tagReponsitory->forceDelete($id);
+        return redirect()->back()->with(['Delete'=>'Delete Successfully','Alert'=>'Delete']);
     }
 }

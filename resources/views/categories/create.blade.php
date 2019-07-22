@@ -23,7 +23,7 @@
             <li class="active">{{ __('Create') }}</li>
         </ol>
     </section>
-    <form action="{{ route('dashboard.category.store') }}" method="POST" enctype="multipart/form-data" class="mx-15 mt-20">
+    <form action="{{ route('dashboard.category.store') }}" method="POST"  class="mx-15 mt-20">
         @csrf
         @method('POST')
         <div class="row">

@@ -24,11 +24,15 @@ class CreateController extends Controller
 
     public function __invoke(){
         // $this->authorize('create',Post::class);
+        // từ cấm
         $restrictes = $this->restritedReponsitory->getAll();
         $restrictedWords = $restrictes->pluck('words')->toArray();
+        //tags
         $tags = $this->tagRepository->getAll();
         $tagsArray = $tags->pluck('name')->toArray();
+        // categories
         $categories = $this->categoryReponsitory->getAll('Tree');
+
         $dataView = compact('categories','tagsArray','restrictedWords');
         return view('posts.backend.create', $dataView);
     }

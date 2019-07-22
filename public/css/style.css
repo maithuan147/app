@@ -374,3 +374,13 @@ table p{
 .phpdebugbar span,.phpdebugbar p,.phpdebugbar li{
     color: black !important;
 }
+.font-weight h5{
+    font-weight: bold;
+}
+.custom-media input{
+    width: 65px;
+    height: 30px;
+    margin-bottom: 15px;
+    border: 1px solid #5555;
+    padding: 5px;
+}

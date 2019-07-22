@@ -61,7 +61,7 @@ class IndexController extends Controller
                 $mySortIcon['iconStatus'] = 'fa fa-sort-amount-desc';
                     break;
             }
-        } 
+        }
         $orderBy = ['content'=>$query,'fitter'=>$queryFitter,'sort'=>$sortQuery,'by'=>$byQuery];    
         if (!empty($query) || !empty($fitter)) {
             $creatials = [[$fitter,'like','%'.$query.'%']];

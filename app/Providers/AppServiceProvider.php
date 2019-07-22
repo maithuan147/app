@@ -16,6 +16,8 @@ use App\Contracts\EloquentsDbRepository\IRoleDbRepository;
 use App\Repositories\EloquentsRepository\RoleEloquentRepository;
 use App\Contracts\EloquentsDbRepository\IRestritedDbRepository;
 use App\Repositories\EloquentsRepository\RestritedEloquentRepository;
+use App\Contracts\EloquentsDbRepository\IMediaDbRepository;
+use App\Repositories\EloquentsRepository\MediaEloquentRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -41,6 +43,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(ICategoryDbRepository::class, CategoryEloquentRepository::class);
         $this->app->singleton(IRoleDbRepository::class, RoleEloquentRepository::class);
         $this->app->singleton(IRestritedDbRepository::class, RestritedEloquentRepository::class);
+        $this->app->singleton(IMediaDbRepository::class, MediaEloquentRepository::class);
 
         View::composer('dashboard', function ($view) {
             $CountUser = User::count();

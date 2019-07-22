@@ -12,30 +12,31 @@ use Intervention\Image\Facades\Image;
 use App\Http\Requests\Post\InsertPostRequest;
 use App\Contracts\EloquentsDbRepository\ITagDbRepository;
 use App\Contracts\EloquentsDbRepository\IPostDbRepository;
+use App\Contracts\EloquentsDbRepository\IMediaDbRepository;
+
 
 class StoreController extends Controller
 {
-    protected $postRepository;
     protected $tagRepository;
+    protected $postRepository;
+    protected $mediaRepository;
 
-    public function __construct(IPostDbRepository $postRepository,ITagDbRepository $tagRepository){
-        $this->postRepository = $postRepository;
+    public function __construct(IPostDbRepository $postRepository,ITagDbRepository $tagRepository,IMediaDbRepository $mediaRepository){
         $this->tagRepository = $tagRepository;
+        $this->postRepository = $postRepository;
+        $this->mediaRepository = $mediaRepository;
     }
     
     public function __invoke(InsertPostRequest $request){
         $dataRequest = $request->validated();
-        // Từ Cấm
-        // str_ireplace(['từ cấm','hạn chế'],'...',$request->content,$count);
-
         $dataRequest['user_id'] = Auth::user()->id;
         // custom thumbnail
         $file = $request['thumbnail'];
         $filename =  Str::uuid().$file->getClientOriginalName();
         $dataRequest['thumbnail'] = $file->storeAs('img', $filename, 'public');
-        $img = Image::make('storage/img/'.$filename);
-        $img->fit(200);
-        $img->save();
+        // fix img
+        $media = $this->mediaRepository->getAll()->pluck('height','width')->toArray();
+        $this->postRepository->fix($media , $filename);
         // create post
         $idPost = $this->postRepository->create($dataRequest);
         // sync Category & Tag

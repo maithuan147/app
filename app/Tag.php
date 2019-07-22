@@ -12,18 +12,14 @@ class Tag extends Model
     use Property,Relationship,Sluggable;
     protected $fillable = [
         'name',
-        'parent_id',
         'slug'
     ];
     
     public function sluggable()
     {
         return [
-            'name' => [
-                'source' => 'name'
-            ],
             'slug' => [
-                'slug' => 'slug'
+                'source' => 'name'
             ]
         ];
     }

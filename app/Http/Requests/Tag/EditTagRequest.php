@@ -24,8 +24,8 @@ class EditTagRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'slug' => 'unique:tags'. $this->id,
+            'name' => 'required|unique:tags,name,'. $this->id,
+            'slug' => 'unique:tags,slug,'. $this->id,
         ];
     }
 }

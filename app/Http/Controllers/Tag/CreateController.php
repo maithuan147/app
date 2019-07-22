@@ -8,16 +8,13 @@ use App\Contracts\EloquentsDbRepository\ICategoryDbRepository;
 
 class CreateController extends Controller
 {
-    protected $categoryReponsitory;
+    protected $tagReponsitory;
 
-    public function __construct(ICategoryDbRepository $categoryReponsitory){
-        $this->categoryReponsitory = $categoryReponsitory;
+    public function __construct(ICategoryDbRepository $tagReponsitory){
+        $this->tagReponsitory = $tagReponsitory;
     }
 
     public function __invoke(){
-        $categoryAll = $this->categoryReponsitory->getAll('Tree');
-        $categories = $categoryAll->pluck('name','id')->prepend('select parent', '')->toArray();
-        $dataView = compact('categories');
-        return view('categories.create',$dataView);
+        return view('tags.create');
     }
 }

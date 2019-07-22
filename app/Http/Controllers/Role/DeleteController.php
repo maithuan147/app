@@ -16,6 +16,6 @@ class DeleteController extends Controller
 
     public function __invoke(int $id){
         $this->roleRepository->forceDelete($id);
-        return redirect()->back()->withInput();
+        return redirect()->back()->with(['Delete'=>'Delete Successfully','Alert'=>'Delete']);
     }
 }

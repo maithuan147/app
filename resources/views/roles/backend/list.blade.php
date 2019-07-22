@@ -88,8 +88,6 @@
                 </table>
                     <h4 class="text-danger text-center mt-15"> No Post</h4>
                 @endif
-                    
-                
             </form>
                 <div class="row mr-a30 ml-0">
                     <div class="col-sm-6">
@@ -99,6 +97,7 @@
                     <div class="col-sm-6 display-flex justify-content-end">{{ $roles->appends($orderBy)->links() }}</div>
                 </div>
             </div>
+            @include('components.alert.alertSuccess')
     </div>
    
     @foreach ($roles as $role)
@@ -127,6 +126,7 @@
     <script src="{{ asset('js/dist/adminlte.min.js')}}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="{{ asset('js/jquery/js.js')}}"></script>
+    <script src="{{ asset('js/jquery/alert.js')}}"></script>
 @endpush
 
     

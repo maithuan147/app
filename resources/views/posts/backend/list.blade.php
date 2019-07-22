@@ -108,6 +108,7 @@
                 <h4 class="text-danger text-center mt-15"> No Post</h4>
             @endif
         </form>
+        </select>
             <div class="row mr-a30 ml-0">
                 <div class="col-sm-6">
                     <span class="dt-length-records">

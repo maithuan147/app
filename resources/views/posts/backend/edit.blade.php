@@ -54,7 +54,7 @@
                         </div>
                         <div class="form-group col-md-12">
                             <label>{{ __('Content') }} <span class="color-red"> *</span></label>
-                            <textarea name="content" class="form-control" id="editor1" required>{{ str_ireplace([],'***',old('content',$post->getContent())) }}</textarea>
+                            <textarea name="content" class="form-control" id="editor1" required>{{ str_ireplace($restrictedWords,'***',old('content',$post->getContent())) }}</textarea>
                             @error('content')
                                 <small class="form-text text-danger">{{ $message }} <a href="{{ url('dashboard/options-restricted') }}">{{ __('Xem từ bị cấm')}}</a></small>
                             @enderror
@@ -111,11 +111,12 @@
                                         @include('components.input.checkboxArray',[
                                             'checkbox' => 'post',
                                             'array' => 'getIdCategories',
-                                            'class' =>'ml-'.$category->ancestors()->count(),
+                                            'id' => $category->getId(),
+                                            'class' => 'ml-'.$category->ancestors()->count(),
                                             'name' => 'category_ids',
                                             'value' => $category->getId(),
                                             'label' => $category->getName()
-                                            ])
+                                        ])
                                     </div>
                                     @endforeach
                                 </ul>

@@ -8,10 +8,10 @@ use App\Contracts\EloquentsDbRepository\ICategoryDbRepository;
 
 class BulkController extends Controller
 {
-    protected $categoryReponsitory;
+    protected $tagReponsitory;
 
-    public function __construct(ICategoryDbRepository $categoryReponsitory){
-        $this->categoryReponsitory = $categoryReponsitory;
+    public function __construct(ICategoryDbRepository $tagReponsitory){
+        $this->tagReponsitory = $tagReponsitory;
     }
      
     public function __invoke(Request $request){

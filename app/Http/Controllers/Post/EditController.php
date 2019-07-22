@@ -11,14 +11,14 @@ use App\Contracts\EloquentsDbRepository\IRestritedDbRepository;
 
 class EditController extends Controller
 {
-    protected $postRepository;
     protected $tagRepository;
+    protected $postRepository;
     protected $categoryReponsitory;
     protected $restritedReponsitory;
 
     public function __construct(IPostDbRepository $postRepository,ITagDbRepository $tagRepository,ICategoryDbRepository $categoryReponsitory,IRestritedDbRepository $restritedReponsitory){
-        $this->postRepository = $postRepository;
         $this->tagRepository = $tagRepository;
+        $this->postRepository = $postRepository;
         $this->categoryReponsitory = $categoryReponsitory;
         $this->restritedReponsitory = $restritedReponsitory;
     }
@@ -37,7 +37,7 @@ class EditController extends Controller
         $tag = $post->tags->pluck('name')->toArray();
         $tagName = implode(',',$tag);
 
-        $dataView = compact('post','tagName','categories','tagsArray');
+        $dataView = compact('post','tagName','categories','tagsArray','restrictedWords');
         return view('posts.backend.edit',$dataView);
     }
 }

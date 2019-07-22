@@ -28,7 +28,7 @@
                 <div class="col-sm-6">
                 </div>
                 <div class="col-sm-6 justify-content-end display-flex ml--15">
-                    <form action="{{ route('dashboard.category.index') }}" style="margin-bottom:0px" method="GET">
+                    <form action="{{ route('dashboard.tag.index') }}" style="margin-bottom:0px" method="GET">
                         <input type="text" name="content" placeholder="{{ __('Seach...') }}" class="seach" value="{{ $query ?? '' }}">
                         <select name="fitter" style="height:25px" >
                             <option value="name" {{ (isset($fitter) && $fitter == 'name') ? 'selected' : '' }}>{{ __('Name') }}</option>
@@ -38,7 +38,7 @@
                     </form>
                 </div>
             </div>
-        <form action="{{ route('dashboard.category.bulk') }}" method="POST">
+        <form action="{{ route('dashboard.tag.bulk') }}" method="POST">
             @csrf
             @method('DELETE')
             <div class="row bg-white font-size-13 mx-15 py-10 mt-15 mb-3">
@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6 justify-content-end display-flex">
-                    <a href="{{ route('dashboard.category.create') }}" class="bg-36c6d3 px-10 mr-10 color-white"><i class="fa fa-plus"></i> {{ __('Create') }}</a>
+                    <a href="{{ route('dashboard.tag.create') }}" class="bg-36c6d3 px-10 mr-10 color-white"><i class="fa fa-plus"></i> {{ __('Create') }}</a>
                     <a href="" class="bg-36c6d3 px-10 color-white"><i class="fas fa-sync"></i>{{ __(' Reload') }} </a>			
                 </div>
             </div>
@@ -91,6 +91,7 @@
                     <div class="col-sm-6 display-flex justify-content-end">{{ $tags->appends($orderBy)->links() }}</div>
                 </div>
             </div>
+        @include('components.alert.alertSuccess')
     </div>
    
     @foreach ($tags as $tag)
@@ -114,6 +115,7 @@
     <script src="{{ asset('js/bootstrap/bootstrap.min.js')}}"></script>
     <script src="{{ asset('js/dist/adminlte.min.js')}}"></script>
     <script src="{{ asset('js/jquery/js.js')}}"></script>
+    <script src="{{ asset('js/jquery/alert.js')}}"></script>
 @endpush
 
     

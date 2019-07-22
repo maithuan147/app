@@ -24,7 +24,7 @@ class InsertTagRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => 'required|unique:tags',
             'slug' => 'unique:tags',
         ];
     }

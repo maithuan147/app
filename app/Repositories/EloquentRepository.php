@@ -25,6 +25,11 @@ abstract class EloquentRepository implements IDbRepository{
     public function find(int $id){
         return $this->model->find($id);
     }
+
+    public function whereId(int $id){
+        return $this->model->onlyTrashed()->find($id);
+    }
+
     public function create(array $data){
         $this->model->fill($data);
         $this->model->save();
@@ -68,7 +73,6 @@ abstract class EloquentRepository implements IDbRepository{
     }
 
     public function onlyTrashed(int $limit = 5){
-        // $this->model->paginate(5);
         return $this->model->onlyTrashed()->paginate($limit);
     }
     
@@ -77,6 +81,9 @@ abstract class EloquentRepository implements IDbRepository{
     }
 
     public function paginate(int $limit = 5,array $creatials=[],string $orderSort='',string $orderBy='asc'){
-        return $this->model->where($creatials)->orderBy($orderSort,$orderBy)->paginate($limit);
+        if(!empty($orderSort)){
+            return $this->model->where($creatials)->orderBy($orderSort,$orderBy)->paginate($limit);
+        }
+        return $this->model->where($creatials)->paginate($limit);
     }
 }

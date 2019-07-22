@@ -95,6 +95,7 @@
                     <div class="col-sm-6 display-flex justify-content-end">{{ $categories->appends($orderBy)->links() }}</div>
                 </div>
             </div>
+        @include('components.alert.alertSuccess')
     </div>
    
     @foreach ($categories as $category)

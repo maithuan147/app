@@ -12,39 +12,41 @@ use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\Post\EditPostRequest;
 use App\Contracts\EloquentsDbRepository\IPostDbRepository;
+use App\Contracts\EloquentsDbRepository\IMediaDbRepository;
+
 
 class UpdateController extends Controller
 {
     protected $postRepository;
+    protected $mediaRepository;
     protected $fillData = ['title','thumbnail','description','content','slug','status'];
 
-    public function __construct(IPostDbRepository $postRepository){
+    public function __construct(IPostDbRepository $postRepository,IMediaDbRepository $mediaRepository){
         $this->postRepository = $postRepository;
+        $this->mediaRepository = $mediaRepository;
     }
 
     public function __invoke($id, EditPostRequest $request){
         $post = $this->postRepository->find($id);
         $dataRequest = $request->only($this->fillData);
-        // Từ cấm
-        str_ireplace(['từ cấm','hạn chế'],'',$request->content,$count);
-        if ($count > 0) {
-            return redirect()->back()->with('restricted','Nội dung bài viết có chứa từ cấm');
-        }
-
         $dataRequest['user_id'] = Auth::user()->id;
+        $media = $this->mediaRepository->getAll()->pluck('height','width')->toArray();
         $file = $request['thumbnail'];
         if(!empty($file) ){
             $filename =  Str::uuid().$file->getClientOriginalName();
             $dataRequest['thumbnail'] = $file->storeAs('img', $filename, 'public');
-            $img = Image::make('storage/img/'.$filename);
-            $img->fit(200);
-            $img->save();
+            // fix image
+            $this->postRepository->fix($media, $filename);
             // delete Thumbnail Old
-            $postOldImg = $post->thumbnail;
-            Storage::delete('1cc918f7-0c82-4026-9232-0062d292a73fpost2');
+            $postOldImg = public_path('storage/'.$post->thumbnail);
+            if(file_exists($postOldImg)){
+                unlink($postOldImg);
+            }
+            $this->postRepository->deleteFileOld($media,$post->thumbnail);
         }
         
-        $this->postRepository->update($id, $dataRequest);   
+        $this->postRepository->update($id, $dataRequest);
+        
         event(new PostWasCategory($id));
         event(new PostWasTag($id));  
         return redirect()->route('dashboard.post.index')->with(['Update'=>'Update Successfully','Alert'=>'Update']);
