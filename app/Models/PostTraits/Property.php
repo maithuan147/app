@@ -29,6 +29,9 @@ trait Property{
     public function getCreatedBy(){
         return $this->user->name;
     }
+    public function getCreatedAt(){
+        return $this->created_at->format('m-d-Y');
+    }
     public function getStatus(){
         return $this->status ? 'Published' : 'Draft';
     }

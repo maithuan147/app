@@ -27,7 +27,7 @@ class EditPostRequest extends FormRequest
     {
         return [
             'title' => 'required|max:250|unique:posts,title,'. $this->id,
-            'thumbnail' => 'image|min:1|max:500|mimes:jpeg,png',
+            'thumbnail' => 'image|min:1|max:500|mimes:jpeg,png,svg',
             'description' => 'required|max:250',
             'content' => ['required','max:5000',new Restricted],
             'status' => 'required|numeric|min:0|max:8',

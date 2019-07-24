@@ -16,8 +16,9 @@ class ShowController extends Controller
     }
 
     public function __invoke(){
+        $postFeatured = $this->postRepository->orderBy('view','desc');
         $posts = $this->postRepository->paginate(6);
-        $dataView = compact('posts');
+        $dataView = compact('posts','postFeatured');
         return view('posts.fontend.list',$dataView);
     }
 }

@@ -15,3 +15,4 @@ Route::group(['namespace' => 'Post\FontEnd', 'prefix' => 'post', 'as' => 'post.'
     Route::get('/', 'ShowController')->name('show');
     Route::get('/{slug}', 'PostShowController')->name('postshow');
 });
+

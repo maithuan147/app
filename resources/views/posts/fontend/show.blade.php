@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="blog-details__seciton">
-                        <div class="img-blog-detail"></div> 
+                        <div class="img-blog-detail" style="background-image: url({{asset(Storage::url($post->thumbnail))}})"></div> 
                         <h3 style="font-size:26px">{{ $post->title }}</h3>
                         <p class="blog-details__seciton-margin1">Thứ 5, ngày 22, 2018</p>
                         <div class="blog-details__seciton-title">
@@ -27,13 +27,15 @@
                     <div class="featured-post">
                         <h3 class="blog-title text-center-mobi">Bài nổi bật</h3>
                         <div class="bog__seciton--boder-bottom"></div>
-                        <div class="bg-featured-post1">
+                        @foreach ($postFeatured as $featured)
+                        <div class="bg-featured-post" style="background-image: url({{asset(Storage::url($featured->thumbnail))}})">
                             <div class="featured-post__tite">
                                 <h3>People with acne can't stop raving about this £12 cream...</h3>
                                 <p>Thứ 5, ngày 22, 2018</p>
                             </div>
                         </div>
-                        <div class="bg-featured-post2">
+                        @endforeach
+                        {{-- <div class="bg-featured-post2">
                             <div class="featured-post__tite">
                                 <h3>These are the best primers in the business that will ens...</h3>
                                 <p>Thứ 5, ngày 22, 2018</p>
@@ -44,7 +46,7 @@
                                 <h3>We asked a lipstick obsessive to try Glossier's Gener...</h3>
                                 <p>Thứ 5, ngày 22, 2018</p>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="blog__section-follow">
                         <h3 class="text-center-mobi">Theo Dõi</h3>

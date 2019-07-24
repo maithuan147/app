@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Models\UserTraits;
+namespace App\Models\AdminTraits;
+
+use Illuminate\Support\Str;
 
 trait Property{
     public function getId(){
@@ -24,15 +26,6 @@ trait Property{
     public function getBirthday(){
         return $this->birthday;
     }
-    public function getGender(){
-        return $this->gender;
-    }
-    public function getFacebook(){
-        return $this->facebook;
-    }
-    public function getSkype(){
-        return $this->skype;
-    }
     public function getStatus(){
         return $this->status ? 'Published' : 'Draft';
     }
@@ -41,14 +34,5 @@ trait Property{
     }
     public function getCreatedAt(){
         return $this->created_at->format('d-m-Y');
-    }
-    public function getRole(){
-        return $this->role->name;
-    }
-    public function getIdRole(){
-        return $this->role->id;
-    }
-    public function getPost(){
-        return $this->posts->count();
     }
 }

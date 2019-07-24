@@ -10,14 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('admin-login', 'Auth\AdminLoginController@showLoginForm');
-Route::post('admin-login', ['as'=>'admin-login','uses'=>'Auth\AdminLoginController@login']);
+// Route::get('admin-login', 'Auth\AdminLoginController@showLoginForm');
+// Route::post('admin-login', ['as'=>'admin-login','uses'=>'Auth\AdminLoginController@login']);
 
 Route::get('language/{language}', 'LangController')->name('language');
 
-
-
-Route::resource('tag', 'TagController');
 Route::resource('user', 'UserController');
 
 Route::group(['namespace' => 'Post', 'prefix' => 'post', 'as' => 'post.'], function () {
@@ -67,6 +64,17 @@ Route::group(['namespace' => 'Role', 'prefix' => 'role', 'as' => 'role.'], funct
     Route::delete('delete/{id}', 'DeleteController')->name('delete');
     Route::delete('bulk', 'BulkController')->name('bulk');
 });
+
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::get('/', 'IndexController')->name('index');
+    Route::get('create', 'CreateController')->name('create');
+    Route::post('store', 'StoreController')->name('store');
+    Route::get('edit/{id}', 'EditController')->name('edit');
+    Route::put('update/{id}', 'UpdateController')->name('update');
+    Route::delete('delete/{id}', 'DeleteController')->name('delete');
+    Route::delete('bulk', 'BulkController')->name('bulk');
+});
+
 Route::group(['namespace' => 'Setting'], function () {
     Route::group(['namespace' => 'Restricted','prefix' => 'options-restricted', 'as' => 'options-restricted.'], function () {
         Route::get('/', 'IndexController')->name('restricted');
@@ -76,10 +84,12 @@ Route::group(['namespace' => 'Setting'], function () {
         Route::get('/', 'IndexController')->name('media');
         Route::put('/media', 'SizeController')->name('media');
     });
+    Route::group(['namespace' => 'Information','prefix' => 'options-information','as' => 'options-information.'], function (){
+        Route::get('/', 'IndexController')->name('information');
+        Route::put('/information/{id}', 'UpdateController')->name('update');
+    });
 });
 
-
-// Auth::routes();
 
 // Route::get('/', 'HomeController@index');
 

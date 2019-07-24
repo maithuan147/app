@@ -86,7 +86,7 @@
                 @foreach ($posts as $post)
                     <tr class="child">
                         <td class="text-center vertical-align-middle"><input type="checkbox" name="bulk_id[]" id="target_cbs_id" value="{{ $post->getId() }}"></td>
-                        <td class="text-center vertical-align-middle"><img src="{{ env('APP_URL') . Storage::url($post->getThumbnail()) }}" alt="#" width="50px"></td>
+                        <td class="text-center vertical-align-middle"><img src="{{ asset(Storage::url($post->getThumbnail())) }}" alt="#" width="50px"></td>
                         <td class=" vertical-align-middle"><a href="#" title="{{ $post->getTitle() }}">{{ $post->getTitle() }}</a></td>
                         <td class="text-center vertical-align-middle">{{ $post->getCreatedBy() }}</td>
                         <td class="text-center vertical-align-middle">

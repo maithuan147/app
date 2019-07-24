@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\UserTraits\Mutator;
 use App\Models\UserTraits\Property;
 use App\Models\UserTraits\Relationship;
 use Illuminate\Notifications\Notifiable;
@@ -10,7 +11,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable,Property,Relationship;
+    use Notifiable,Property,Relationship,Mutator;
 
     /**
      * The attributes that are mass assignable.
@@ -18,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'permissions', 'password','email','role'
+        'name', 'avatar','email','password','status','phone','address','birthday','role_id','permissions'
     ];
 
     /**

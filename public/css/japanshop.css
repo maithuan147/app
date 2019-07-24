@@ -23,6 +23,10 @@ h2{
 	padding-left: 30px;
 	padding-right: 30px;
 }
+.mx-40{
+	margin-left: 40px;
+	margin-right: 40px;
+}
 .home-color-pink{
 	color: #FFBAD4 !important;
 }
@@ -522,7 +526,7 @@ footer{
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.08);
 }
 .footer-title{
-	padding: 40px 0 25px 0;
+	padding: 30px 0 30px 0;
 }
 .footer-title-margin{
 	margin-top: 15px;
@@ -783,20 +787,7 @@ footer{
 .bg-blog-margin-top{
 	margin-top: 60px;
 }
-.bg-featured-post1{
-	background-image: url("../img/bg-featured-post1.png");
-	width: 100px;
-	height: 100px;
-	margin-bottom: 30px;
-}
-.bg-featured-post2{
-	background-image: url("../img/bg-featured-post2.png");
-	width: 100px;
-	height: 100px;
-	margin-bottom: 30px;
-}
-.bg-featured-post3{
-	background-image: url("../img/bg-featured-post3.png");
+.bg-featured-post{
 	width: 100px;
 	height: 100px;
 	margin-bottom: 30px;
@@ -849,7 +840,6 @@ footer{
 	font-family: Montserrat;
 }
 .img-blog-detail{
-	background-image: url("../img/blog-details.png");
 	height: 430px;
 	background-position: center;
 	background-size: cover;

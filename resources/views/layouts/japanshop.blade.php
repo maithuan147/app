@@ -18,8 +18,8 @@
         <div class="header__address--border-bottom">
             <div class="container">
                 <div class="header__address">
-                    <span><img src="{{ asset('img/icon-telephone-before.svg')}}" alt="#">0122.222.4002</span>
-                    <span><img src="{{ asset('img/icon-location-before.svg')}}" alt="#">29/29 Đoàn Thị Điểm, P.1, Q, Phú Nhuận, TP.HCM</span>
+                    <span><img src="{{ asset('img/icon-telephone-before.svg')}}" alt="#">{{ $information->phone }}</span>
+                    <span><img src="{{ asset('img/icon-location-before.svg')}}" alt="#">{{ $information->address }}</span>
                     <a class="float-right header__address--border-right" href="#">Đăng Ký</a>
                     <a class="float-right header__address--border-right1" href="#">Đăng Nhập</a>
                 </div>
@@ -27,7 +27,7 @@
         </div>
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="bug-home.html"><img src="{{ asset('img/icon-seach1-before.svg')}}" alt="#">
+                <a class="navbar-brand" href="bug-home.html"><img src="{{ asset(Storage::url($information->logo))}}" alt="#"   style="width:60px;height:60px">
                     <div class="header__search">
                     <h2>Shop Hàng Nhật</h2>
                     <p>Chuyên Hàng Nội Địa Nhật Bản</p>
@@ -89,13 +89,16 @@
                     <div class="row">
                         <div class="col-md-4">
                             <ul class="list-unstyled">
-                                <li>
-                                    <a href="#"><img src="{{ asset('img/icon-fb.svg')}}" alt="#" class="footer-title-margin"></a>
+                                <li class="footer-title-margin">
+                                    <a href="{{ $information->facebook }}"><img src="{{ asset('img/img-fb.svg')}}" alt="#"></a>
+                                    <a href="{{ $information->google }}" class="mx-40"><img src="{{ asset('img/img-p.svg')}}" alt="#"></a>
+                                    <a href="{{ $information->instagram }}"><img src="{{ asset('img/img-in.svg')}}" alt="#"></a>
+                                    {{-- <a href="#"><img src="{{ asset('img/icon-fb.svg')}}" alt="#" class=""></a> --}}
                                 </li>
                             </ul>
                         </div>
                         <div class="col-md-4 text-center">
-                            <img src="{{ asset('img/icon-seach1-before.svg')}}" alt="#">
+                            <img src="{{ asset(Storage::url($information->logo))}}" alt="#" style="width:60px;height:60px">
                         </div>
                         <div class="col-md-4 text-right text-center-mobi">
                             <a href="#"><img src="{{ asset('img/icon-paypal.svg')}}" alt="#"></a>
@@ -110,28 +113,28 @@
                             <div class="footer-address__section">
                                 <img src="{{ asset('img/icon-tele-footer.svg')}}" alt="#">
                                 <p class="font-weight-bold">Điện Thoại</p>
-                                <p class="font-size-14px">0122 . 222 . 4002</p>
+                                <p class="font-size-14px">{{ $information->phone }}</p>
                             </div>
                         </div>
                         <div class="col-md-4 text-center">
                             <div class="footer-address__section">
                                 <img src="{{ asset('img/icon-locat-footer.svg')}}" alt="#">
                                 <p class="font-weight-bold">Địa Chỉ</p>
-                                <p class="font-size-14px">29/29 Đoàn Thị Điểm, Phường 1 Quận Phú Nhuận, TP.HCM</p>
+                                <p class="font-size-14px">{{ $information->address }}</p>
                             </div>
                         </div>
                         <div class="col-md-4 text-center">
                             <div class="footer-address__section">
                                 <img src="{{ asset('img/icon-email-footer.svg')}}" alt="#">
                                 <p class="font-weight-bold">Email</p>
-                                <p class="font-size-14px">shopthao@sample.com</p>
+                                <p class="font-size-14px">{{ $information->email }}</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="footer-info text-center">
-                <p>© shophangnhat 2018 All Rights Reserved</p>
+                <p>{{ $information->textfooter }}</p>
             </div>
         </div>
     </footer>

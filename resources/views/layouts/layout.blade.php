@@ -246,6 +246,7 @@
                         <li><a href="#"><i class="fa fa-circle-o"></i>{{ __('General') }}</a></li>
                         <li><a href="{{ url('dashboard/options-restricted') }}"><i class="fa fa-circle-o"></i> {{ __('Restricted') }}</a></li>
                         <li><a href="{{ url('dashboard/options-media') }}"><i class="fa fa-circle-o"></i>{{ __('Media') }}</a></li>
+                        <li><a href="{{ url('dashboard/options-information') }}"><i class="fa fa-circle-o"></i>{{ __('Information') }}</a></li>
                     </ul>
                 </li>
 
