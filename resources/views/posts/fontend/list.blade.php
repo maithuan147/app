@@ -36,12 +36,10 @@
                         <div class="bog__seciton--boder-bottom"></div>
                         @foreach ($postFeatured as $featured)
                         <div style="display:flex;margin-bottom:30px">
-                            {{-- <div class="bg-featured-post" style="background-image: url({{asset(Storage::url($featured->thumbnail))}})"> --}}
                             <img src="{{asset(Storage::url($featured->thumbnail))}}" alt="#" style="width:100px;height:100px;border-radius:10px">
                             <div class="featured-post__tite">
                                 <h3>{{ $featured->title }}</h3>
                                 <p>{{ $featured->getCreatedAt() }}</p>
-                            {{-- </div> --}}
                             </div>
                         </div>
                         @endforeach

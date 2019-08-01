@@ -28,25 +28,14 @@
                         <h3 class="blog-title text-center-mobi">Bài nổi bật</h3>
                         <div class="bog__seciton--boder-bottom"></div>
                         @foreach ($postFeatured as $featured)
-                        <div class="bg-featured-post" style="background-image: url({{asset(Storage::url($featured->thumbnail))}})">
+                        <div style="display:flex;margin-bottom:30px">
+                            <img src="{{asset(Storage::url($featured->thumbnail))}}" alt="#" style="width:100px;height:100px;border-radius:10px">
                             <div class="featured-post__tite">
-                                <h3>People with acne can't stop raving about this £12 cream...</h3>
-                                <p>Thứ 5, ngày 22, 2018</p>
+                                <h3>{{ $featured->title }}</h3>
+                                <p>{{ $featured->getCreatedAt() }}</p>
                             </div>
                         </div>
                         @endforeach
-                        {{-- <div class="bg-featured-post2">
-                            <div class="featured-post__tite">
-                                <h3>These are the best primers in the business that will ens...</h3>
-                                <p>Thứ 5, ngày 22, 2018</p>
-                            </div>
-                        </div>
-                        <div class="bg-featured-post3">
-                            <div class="featured-post__tite">
-                                <h3>We asked a lipstick obsessive to try Glossier's Gener...</h3>
-                                <p>Thứ 5, ngày 22, 2018</p>
-                            </div>
-                        </div> --}}
                     </div>
                     <div class="blog__section-follow">
                         <h3 class="text-center-mobi">Theo Dõi</h3>

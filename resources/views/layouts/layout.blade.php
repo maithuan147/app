@@ -215,10 +215,14 @@
 
                 <li class="">            
                     <a href="{{ url('dashboard/user') }}">
-                        <i class="fa fa-users"></i> <span>{{ __('Users') }}</span>
+                        <i class="fa fa-users"></i> <span>{{ __('User') }}</span>
                     </a>
                 </li>
-
+                <li class="">            
+                    <a href="{{ url('dashboard/page') }}">
+                        <i class="fa fa-book"></i> <span>{{ __('Page') }}</span>
+                    </a>
+                </li>
                 <li class="treeview">
                   <a href="#">
                     <i class="fa fa-edit"></i> <span>{{ __('Blog') }}</span>

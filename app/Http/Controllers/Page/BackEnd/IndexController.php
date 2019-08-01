@@ -1,35 +1,30 @@
 <?php
 
-namespace App\Http\Controllers\Post;
+namespace App\Http\Controllers\Page\BackEnd;
 
-use App\Post;
+use App\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
-use App\Contracts\EloquentsDbRepository\IPostDbRepository;
+use App\Contracts\EloquentsDbRepository\IPageDbRepository;
 
 class IndexController extends Controller
 {
-    protected $postRepository;
+    protected $pageRepository;
 
-    public function __construct(IPostDbRepository $postRepository){
-        $this->postRepository = $postRepository;
+    public function __construct(IPageDbRepository $pageRepository){
+        $this->pageRepository = $pageRepository;
     }
     public function __invoke(Request $request){
-        // if (Gate::denies('list-post')) {
-        //     \abort(404);
-        // }
-        $this->authorize('before',Post::class);
-
-        $postModel = new Post;
+        // $this->authorize('before',Post::class);
+        $pageModel = new Page;
 
         $query = $request->query('content');
         $connectQuery = isset($query) ? '&content='.$query : '';
 
         $queryFitter = $request->query('fitter');
         $connectFitter = isset($queryFitter) ? '&fitter='.$queryFitter : '';
-        $fitter = isset($queryFitter) ? $queryFitter : 'title';
-        
+        $fitter = isset($queryFitter) ? $queryFitter : 'title'; 
 
         $myOrder = [
             'title' => '?sort=title&by=desc'.$connectQuery.$connectFitter,
@@ -65,13 +60,9 @@ class IndexController extends Controller
         $orderBy = ['content'=>$query,'fitter'=>$queryFitter,'sort'=>$sortQuery,'by'=>$byQuery];    
         if (!empty($query) || !empty($fitter)) {
             $creatials = [[$fitter,'like','%'.$query.'%']];
-            if($fitter == 'name'){
-                $posts = $this->postRepository->joinCategory(5,$creatials,$sort,$by);
-            }else{
-                $posts = $this->postRepository->paginate(5,$creatials,$sort,$by);
-            }
-            $dataView = compact('posts','query','queryFitter','orderBy','postModel','myOrder','mySortIcon');
-            return view('posts.backend.list',$dataView);
+            $pages = $this->pageRepository->paginate(5,$creatials,$sort,$by);
+            $dataView = compact('pages','query','queryFitter','orderBy','pageModel','myOrder','mySortIcon');
+            return view('pages.backend.list',$dataView);
         }
         return redirect()->back();
     }

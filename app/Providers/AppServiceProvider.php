@@ -23,6 +23,8 @@ use App\Contracts\EloquentsDbRepository\IMediaDbRepository;
 use App\Repositories\EloquentsRepository\MediaEloquentRepository;
 use App\Contracts\EloquentsDbRepository\IAdminDbRepository;
 use App\Repositories\EloquentsRepository\AdminEloquentRepository;
+use App\Contracts\EloquentsDbRepository\IPageDbRepository;
+use App\Repositories\EloquentsRepository\PageEloquentRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -50,6 +52,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(IRestritedDbRepository::class, RestritedEloquentRepository::class);
         $this->app->singleton(IMediaDbRepository::class, MediaEloquentRepository::class);
         $this->app->singleton(IAdminDbRepository::class, AdminEloquentRepository::class);
+        $this->app->singleton(IPageDbRepository::class, PageEloquentRepository::class);
         $this->app->singleton(IMediaRepository::class, MediaRepository::class);
 
         View::composer('dashboard', function ($view) {

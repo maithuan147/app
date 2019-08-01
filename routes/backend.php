@@ -17,6 +17,19 @@ Route::get('language/{language}', 'LangController')->name('language');
 
 Route::resource('user', 'UserController');
 
+Route::group(['namespace' => 'Page\BackEnd', 'prefix' => 'page', 'as' => 'page.'], function () {
+    Route::get('/', 'IndexController')->name('index');
+    Route::get('listTrash', 'IndexTrashController')->name('listTrash');
+    Route::get('create', 'CreateController')->name('create');
+    Route::post('store', 'StoreController')->name('store');
+    Route::get('edit/{id}', 'EditController')->name('edit');
+    Route::put('update/{id}', 'UpdateController')->name('update');
+    Route::post('restore/{id}', 'RestoreController')->name('restore');
+    Route::delete('delete/{id}', 'DeleteController')->name('delete');
+    Route::delete('trash/{id}', 'TrashController')->name('trash');
+    Route::delete('bulk', 'BulkController')->name('bulk');
+});
+
 Route::group(['namespace' => 'Post', 'prefix' => 'post', 'as' => 'post.'], function () {
     Route::get('/', 'IndexController')->name('index');
     Route::get('listTrash', 'IndexTrashController')->name('listTrash');
@@ -24,7 +37,6 @@ Route::group(['namespace' => 'Post', 'prefix' => 'post', 'as' => 'post.'], funct
     Route::get('create', 'CreateController')->name('create');
     Route::post('store', 'StoreController')->name('store');
     Route::get('edit/{id}', 'EditController')->name('edit');
-    Route::put('update/{id}', 'UpdateController')->name('update');
     Route::post('restore/{id}', 'RestoreController')->name('restore');
     Route::put('clone/{id}', 'CloneController')->name('clone');
     Route::delete('delete/{id}', 'DeleteController')->name('delete');
