@@ -37,6 +37,7 @@ Route::group(['namespace' => 'Post', 'prefix' => 'post', 'as' => 'post.'], funct
     Route::get('create', 'CreateController')->name('create');
     Route::post('store', 'StoreController')->name('store');
     Route::get('edit/{id}', 'EditController')->name('edit');
+    Route::put('update/{id}', 'UpdateController')->name('update');
     Route::post('restore/{id}', 'RestoreController')->name('restore');
     Route::put('clone/{id}', 'CloneController')->name('clone');
     Route::delete('delete/{id}', 'DeleteController')->name('delete');

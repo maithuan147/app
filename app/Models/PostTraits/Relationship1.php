@@ -6,7 +6,7 @@ use App\Tag;
 use App\User;
 use App\Category;
 
-trait Relationship{
+trait Relationship1{
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
@@ -16,7 +16,7 @@ trait Relationship{
     {
         return $this->belongsToMany(Category::class,'categories_post','post_id','categories_id');
     }
-
+    
     public function user()
     {
         return $this->belongsTo(User::class);
