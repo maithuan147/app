@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Post\FontEnd;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Collection;
 use App\Contracts\EloquentsDbRepository\IPostDbRepository;
 
 

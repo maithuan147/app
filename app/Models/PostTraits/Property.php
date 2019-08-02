@@ -12,9 +12,12 @@ trait Property{
         return $this->description;
     }
     public function getTitle(){
-        if (strlen($this->title) > 70 ) {
-            return substr($this->title,0,70).'...';
+        if (strlen($this->title) > 50 ) {
+            return substr($this->title,0,50).'...';
         }
+        return $this->title;
+    }
+    public function getEditTitle(){
         return $this->title;
     }
     public function getThumbnail(){

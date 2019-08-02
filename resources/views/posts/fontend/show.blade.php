@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="blog-details__seciton">
-                        <div class="img-blog-detail" style="background-image: url({{asset(Storage::url($post->thumbnail))}})"></div> 
+                        <div class="img-blog-detail" style="background-image: url({{asset(Storage::url($post->thumbnail))}})"></div>
                         <h3 style="font-size:26px">{{ $post->title }}</h3>
                         <p class="blog-details__seciton-margin1">Thứ 5, ngày 22, 2018</p>
                         <div class="blog-details__seciton-title">
@@ -31,7 +31,7 @@
                         <div style="display:flex;margin-bottom:30px">
                             <img src="{{asset(Storage::url($featured->thumbnail))}}" alt="#" style="width:100px;height:100px;border-radius:10px">
                             <div class="featured-post__tite">
-                                <h3>{{ $featured->title }}</h3>
+                                <h3>{{ $featured->getTitle() }}</h3>
                                 <p>{{ $featured->getCreatedAt() }}</p>
                             </div>
                         </div>

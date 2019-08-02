@@ -74,7 +74,7 @@
                             <a class="nav-link" href="shop.html">Cửa Hàng</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link home-color-pink" href="blog.html">Tư Vấn</a>
+                            <a class="nav-link home-color-pink" href="{{ url('japanshop/post') }}">Tư Vấn</a>
                         </li>
                     </ul>
                 </div>

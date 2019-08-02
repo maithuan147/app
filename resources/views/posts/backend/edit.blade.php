@@ -38,7 +38,7 @@
                             'label' => __('Title'),
                             'name' => 'title',
                             'required' => true,
-                            'default' => $post->getTitle(),
+                            'default' => $post->getEditTitle(),
                             'placeholder' => 'enter your title',
                             ])
                         </div>

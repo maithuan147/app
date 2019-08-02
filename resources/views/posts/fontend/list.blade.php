@@ -1,7 +1,3 @@
-{{-- @foreach ($posts as $post)
-    <div>{{ $post->title }}</div>
-    <a href="{{ route('japanshop.post.postshow',$post->slug) }}">{!! $post->content !!}</a>
-@endforeach --}}
 @extends('layouts.japanshop')
 @section('title', 'Post')
 @section('content')
@@ -19,7 +15,7 @@
                                 <div class="bg-blog1" style="background-image: url({{asset(Storage::url($post->thumbnail))}})">
                                     <div class="bg-opacity">
                                         <div class="new-posts__section-bg text-left">
-                                            <h3>{{ $post->title }}</h3>
+                                            <h3 style="font-size:18px">{{ $post->title }}</h3>
                                             <p>{{ $post->getCreatedAt() }}</p>
                                         </div>
                                     </div>
@@ -38,7 +34,7 @@
                         <div style="display:flex;margin-bottom:30px">
                             <img src="{{asset(Storage::url($featured->thumbnail))}}" alt="#" style="width:100px;height:100px;border-radius:10px">
                             <div class="featured-post__tite">
-                                <h3>{{ $featured->title }}</h3>
+                                <h3>{{ $featured->getTitle() }}</h3>
                                 <p>{{ $featured->getCreatedAt() }}</p>
                             </div>
                         </div>

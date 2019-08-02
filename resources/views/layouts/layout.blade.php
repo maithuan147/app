@@ -194,35 +194,21 @@
                     </div>
                 </div>
              
-              <!-- /.search form -->
-              <!-- sidebar menu: : style can be found in sidebar.less -->
               <ul class="sidebar-menu" data-widget="tree">
                 <li class="active">
                 <a href="{{ url('dashboard') }}">
                     <i class="fa fa-dashboard"></i> <span>{{ __('Dashboard') }}</span>
                   </a>
                 </li> 
-                <li class="">            
-                    <a href="{{ url('dashboard/role') }}">
-                      <i class="fa fa-pie-chart"></i> <span>{{ __('Roles & Permissions') }}</span>
-                    </a>
-                  </li> 
-                <li class="">            
-                  <a href="{{ url('dashboard/admin') }}">
-                    <i class="fa fa-address-book-o"></i> <span>{{ __('Admin') }}</span>
-                  </a>
-                </li>
 
-                <li class="">            
-                    <a href="{{ url('dashboard/user') }}">
-                        <i class="fa fa-users"></i> <span>{{ __('User') }}</span>
-                    </a>
-                </li>
                 <li class="">            
                     <a href="{{ url('dashboard/page') }}">
                         <i class="fa fa-book"></i> <span>{{ __('Page') }}</span>
                     </a>
                 </li>
+
+                {{-- Blog --}}
+
                 <li class="treeview">
                   <a href="#">
                     <i class="fa fa-edit"></i> <span>{{ __('Blog') }}</span>
@@ -238,6 +224,59 @@
                     <li><a href="{{ url('dashboard/tag') }}"><i class="fa fa-circle-o"></i>{{ __('Tag') }}</a></li>
                   </ul>
                 </li>
+
+                {{-- Product  --}}
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-tags fw"></i> <span>{{ __('Product ') }}</span>
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="{{ url('dashboard/admin') }}">
+                                <i class="fa fa-circle-o"></i>{{ __('Category') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('dashboard/role') }}">
+                                <i class="fa fa-circle-o"></i>{{ __('Product') }}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                    
+                {{-- Platform Administration  --}}
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-address-book-o"></i> <span>{{ __('Platform Administration ') }}</span>
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="{{ url('dashboard/admin') }}">
+                                <i class="fa fa-circle-o"></i>{{ __('Admin') }}
+                            </a>
+                        </li>
+                        <li>
+                                <a href="{{ url('dashboard/role') }}">
+                                    <i class="fa fa-circle-o"></i>{{ __('Roles & Permissions') }}
+                                 </a>
+                            </li>
+                        <li>
+                            <a href="{{ url('dashboard/user') }}">
+                                <i class="fa fa-circle-o"></i>{{ __('User') }}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                {{-- Setting --}}
 
                 <li class="treeview">
                     <a href="#">

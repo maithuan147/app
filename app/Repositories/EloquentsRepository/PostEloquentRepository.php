@@ -53,7 +53,11 @@ class PostEloquentRepository extends EloquentRepository implements IPostDbReposi
     }
 
     public function orderBy(string $orderSort='',string $orderBy='asc'){
-            return $this->model->orderBy($orderSort,$orderBy)->find([1,2,3]);
+        $post = $this->model->orderBy($orderSort,$orderBy)->get();
+        $postFeatured  = $post->filter(function ($value, $key) {
+            return $key < 3;
+        });
+        return $postFeatured->all();
     }
 
 }
