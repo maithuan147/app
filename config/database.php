@@ -71,6 +71,7 @@ return [
             'username' => 'sljnvgfkhsbduw',
             'password' => '02a3cc22532de9cc57775f2efd31716d3da0b64a54e53e923b356c43e716eda6',
             'charset' => 'utf8',
+            'prefix_indexes' => true,
             'prefix' => '',
             'schema' => 'public',
             'sslmode' => 'prefer',
