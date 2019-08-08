@@ -194,16 +194,16 @@
                     </div>
                 </div>
              
-              <ul class="sidebar-menu" data-widget="tree">
-                <li class="active">
-                <a href="{{ url('dashboard') }}">
-                    <i class="fa fa-dashboard"></i> <span>{{ __('Dashboard') }}</span>
-                  </a>
+            <ul class="sidebar-menu" data-widget="tree">
+                <li>
+                    <a href="{{ url('dashboard') }}">
+                        <i class="fa fa-dashboard"></i><span>{{ __('Dashboard') }}</span>
+                    </a>
                 </li> 
 
-                <li class="">            
+                <li>            
                     <a href="{{ url('dashboard/page') }}">
-                        <i class="fa fa-book"></i> <span>{{ __('Page') }}</span>
+                        <i class="fa fa-book"></i><span>{{ __('Page') }}</span>
                     </a>
                 </li>
 
@@ -229,7 +229,7 @@
 
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-tags fw"></i> <span>{{ __('Product ') }}</span>
+                        <i class="fa fa-tags fw"></i><span> {{ __('Product ') }}</span>
                         <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                         </span>
@@ -252,7 +252,7 @@
 
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-address-book-o"></i> <span>{{ __('Platform Administration ') }}</span>
+                        <i class="fa fa-address-book-o"></i><span>{{ __('Platform Administration ') }}</span> 
                         <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                         </span>
@@ -280,7 +280,7 @@
 
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-cogs"></i> <span>{{ __('Setting') }}</span>
+                        <i class="fa fa-cogs"></i><span> {{ __('Setting') }}</span>
                         <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                         </span>
@@ -297,7 +297,7 @@
                 <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>{{ __('Important') }}</span></a></li>
                 <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>{{ __('Warning') }}</span></a></li>
                 <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>{{ __('Information') }}</span></a></li>
-              </ul>
+            </ul>
             </section>
             <!-- /.sidebar -->
           </aside>        
@@ -310,6 +310,17 @@
         reserved.
     </footer>
     @stack('scripts')
-       <script src="{{ asset('js/jquery/theme.js') }}"></script>
+    <script src="{{ asset('js/jquery/theme.js') }}"></script>
+    <script>
+        $(document).ready(function(){
+            console.log(window.location.href);
+            var page = window.location.href;
+            $(".sidebar-menu a").each(function(){
+                console.log($(this).attr("href"));
+                if ($(this).attr("href") == page)
+                $(this).addClass("active")
+            });     
+        });
+    </script>
 </body>
 </html>

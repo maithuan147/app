@@ -65,13 +65,13 @@
                 <div class="container">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link slide-bar--margin-left" href="bug-home.html">Trang Chủ</a>
+                            <a class="nav-link slide-bar--margin-left" href="#">Trang Chủ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="introduce.html">Giới Thiệu</a>
+                            <a class="nav-link" href="#">Giới Thiệu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="shop.html">Cửa Hàng</a>
+                            <a class="nav-link" href="#">Cửa Hàng</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link home-color-pink" href="{{ url('japanshop/post') }}">Tư Vấn</a>
