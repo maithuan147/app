@@ -37,6 +37,7 @@ class PostEloquentRepository extends EloquentRepository implements IPostDbReposi
     }
     
     public function clone(int $id){
+        // dd($id);
         $postId = parent::clone($id);
         event(new PostCloneTag($postId,$id));
         event(new PostCloneCategory($postId,$id));

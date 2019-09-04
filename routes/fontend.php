@@ -16,3 +16,9 @@ Route::group(['namespace' => 'Post\FontEnd', 'prefix' => 'post', 'as' => 'post.'
     Route::get('/{slug}', 'PostShowController')->name('postshow');
 });
 
+Route::group(['namespace' => 'Product\Product\FontEnd', 'prefix' => 'product', 'as' => 'product.'], function () {
+    Route::get('/', 'ProductController')->name('show');
+    Route::get('/category/{category}', 'ProductCategoryController')->name('category');
+    Route::get('/{slug}', 'ProductDetailsController')->name('details');
+});
+

@@ -7,10 +7,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" nitegrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/japanshop.css')}}">
     <link href="https://fonts.googleapis.com/css?family=Monda|Montserrat|Russo+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     @stack('head')
 </head>
 <body>
@@ -71,10 +71,10 @@
                             <a class="nav-link" href="#">Giới Thiệu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Cửa Hàng</a>
+                            <a class="nav-link" href="{{ url('japanshop/product') }}">Cửa Hàng</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link home-color-pink" href="{{ url('japanshop/post') }}">Tư Vấn</a>
+                            <a class="nav-link" href="{{ url('japanshop/post') }}">Tư Vấn</a>
                         </li>
                     </ul>
                 </div>
@@ -141,6 +141,18 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            var page = window.location.href;
+            var page_2 = window.location.href.substr(window.location.href.indexOf("/japanshop")+10);
+            var page_3 = page_2.substr(window.location.href.indexOf("/"))
+            console.log(page_3);
+            $(".navbar-nav a").each(function(){
+                if ($(this).attr("href") == page)
+                $(this).addClass("home-color-pink")
+            });     
+        });
+    </script>
     @stack('scripts')
 </body>
 </html>

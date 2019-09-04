@@ -236,13 +236,18 @@
                     </a>
                     <ul class="treeview-menu">
                         <li>
-                            <a href="{{ url('dashboard/admin') }}">
+                            <a href="{{ url('dashboard/product') }}">
+                                <i class="fa fa-circle-o"></i>{{ __('Product') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('dashboard/product-category') }}">
                                 <i class="fa fa-circle-o"></i>{{ __('Category') }}
                             </a>
                         </li>
                         <li>
-                            <a href="{{ url('dashboard/role') }}">
-                                <i class="fa fa-circle-o"></i>{{ __('Product') }}
+                            <a href="{{ url('dashboard/product-tag') }}">
+                                <i class="fa fa-circle-o"></i>{{ __('Tag') }}
                             </a>
                         </li>
                     </ul>

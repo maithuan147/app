@@ -25,6 +25,12 @@ use App\Contracts\EloquentsDbRepository\IAdminDbRepository;
 use App\Repositories\EloquentsRepository\AdminEloquentRepository;
 use App\Contracts\EloquentsDbRepository\IPageDbRepository;
 use App\Repositories\EloquentsRepository\PageEloquentRepository;
+use App\Contracts\EloquentsDbRepository\IProductDbRepository;
+use App\Repositories\EloquentsRepository\ProductEloquentRepository;
+use App\Contracts\EloquentsDbRepository\ICategoryProductDbRepository;
+use App\Repositories\EloquentsRepository\CategoryProductEloquentRepository;
+use App\Contracts\EloquentsDbRepository\ITagProductDbRepository;
+use App\Repositories\EloquentsRepository\TagProductEloquentRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -54,6 +60,10 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(IAdminDbRepository::class, AdminEloquentRepository::class);
         $this->app->singleton(IPageDbRepository::class, PageEloquentRepository::class);
         $this->app->singleton(IMediaRepository::class, MediaRepository::class);
+        $this->app->singleton(IProductDbRepository::class, ProductEloquentRepository::class);
+        $this->app->singleton(ICategoryProductDbRepository::class, CategoryProductEloquentRepository::class);
+        $this->app->singleton(ITagProductDbRepository::class, TagProductEloquentRepository::class);
+        
 
         View::composer('dashboard', function ($view) {
             $CountUser = User::count();

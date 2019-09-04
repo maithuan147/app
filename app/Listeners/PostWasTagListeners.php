@@ -57,7 +57,6 @@ class PostWasTagListeners
                 $idTag = $this->tagRepository->create($dataRequestTag);
             }
             $idTagArray[$key] = $idTag; 
-                   
         }
         $this->postRepository->saveTags($idTagArray, $event->postId);
     }

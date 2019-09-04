@@ -27,6 +27,10 @@ h2{
 	margin-left: 40px;
 	margin-right: 40px;
 }
+.mx-0{
+	margin-left: 0px;
+	margin-right: 0px;
+}
 .home-color-pink{
 	color: #FFBAD4 !important;
 }
@@ -168,6 +172,7 @@ header .btn-outline-success{
 }
 .slide-bar--margin-left{
 	margin-left: 0px !important;
+	padding-left: 0px !important;
 }
 .box-shadow{
 	box-shadow: inset 0px 3px 10px rgba(0, 0, 0, 0.08);
@@ -363,7 +368,6 @@ header .btn-outline-success{
 .hot-products__section-slide{
 	border: 1px solid #F0F2F7;
     border-radius: 10px;
-    margin-top: 90px;
     text-align: center;
     position: relative;
 }
@@ -650,12 +654,19 @@ footer{
 	color: #333333;
 	font-family: Montserrat;
 }
+.mt--5{
+	margin-top: -5px ;
+}
+.py-15{
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
 .shop__section-all{
-	margin-top: 8px;
+	margin-top: 25px;
 	margin-bottom:60px;
 }
-.shop__section-all .col-lg-4{
-	margin-top: -60px;
+.show-dropdown-menu{
+	transform: translate3d(0, 54px, 0px) !important;
 }
 .page-link{
 	border: inherit;
@@ -993,13 +1004,13 @@ footer{
 .shop-details__section-info .page-item:last-child .page-link{
 	border-radius: inherit;
 }
-.col-sm-6:nth-child(2){
+.bog__seciton .col-sm-6:nth-child(2){
     margin-top: 60px;
 }
-.col-sm-6:nth-child(1){
+.bog__seciton .col-sm-6:nth-child(1){
     margin-top: 0px !important;
 }
-.col-sm-6:nth-child(2n+1){
+.bog__seciton .col-sm-6:nth-child(2n+1){
     margin-top: -60px;
 }
 

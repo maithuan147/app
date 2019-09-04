@@ -27,6 +27,18 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\PostCloneTag' => [
             'App\Listeners\PostCloneTagListeners',
         ],
+        'App\Events\ProductEvents\ProductWasCategory' => [
+            'App\Listeners\ProductListners\ProductWasCategoryListeners',
+        ],
+        'App\Events\ProductEvents\ProductWasTag' => [
+            'App\Listeners\ProductListners\ProductWasTagListeners',
+        ],
+        'App\Events\ProductEvents\ProductCloneCategory' => [
+            'App\Listeners\ProductListners\ProductCloneCategoryListeners',
+        ],
+        'App\Events\ProductEvents\ProductCloneTag' => [
+            'App\Listeners\ProductListners\ProductCloneTagListeners',
+        ],
     ];
 
     /**
