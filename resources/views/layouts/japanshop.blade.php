@@ -144,12 +144,10 @@
     <script>
         $(document).ready(function(){
             var page = window.location.href;
-            var page_2 = window.location.href.substr(window.location.href.indexOf("/japanshop")+10);
-            var page_3 = page_2.substr(window.location.href.indexOf("/"))
-            console.log(page_3);
             $(".navbar-nav a").each(function(){
-                if ($(this).attr("href") == page)
-                $(this).addClass("home-color-pink")
+                if (page.includes($(this).attr("href")) ){
+                    $(this).addClass("home-color-pink")
+                }
             });     
         });
     </script>

@@ -34,6 +34,5 @@
             </form>
             <p class="text-footer text-center">Copyright 2019 © Botble Technologies. Version: 3.4</p>
         </div>
-        
     </div>
 @endsection
